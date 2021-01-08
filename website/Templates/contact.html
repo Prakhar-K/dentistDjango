@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Contact Dentist{% endblock %}
+{% block meta_description %}This is the website of dentist{% endblock %}
+
+{% block content %}
+
+
+
+
+
+
+	<section id="inner-headline">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<h2 class="pageTitle">Contact Us</h2>
+			</div>
+		</div>
+	</div>
+	</section>
+	<section id="content">
+
+	<div class="container">
+		<div class="row"> 
+							<div class="col-md-12">
+								<div class="about-logo">
+									<h3>Get<span class="color"> In Touch</span></h3>
+									<p>Sed ut perspiciaatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas</p>
+                                    	<p>Sed ut perspiciaatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas</p>
+								</div>  
+							</div>
+						</div>
+	<div class="row">
+								<div class="col-md-6">
+									<p> </p>
+								  	
+		   <!-- Form itself -->
+          <form action="{% url 'contact' %}" method = "post">
+          {% csrf_token %} 
+		 	<div class="row">
+		 		<div class="col-lg-6">
+					<input type="text" name="message-name" class="form-control mb-30" placeholder="Your Name">		   
+	         </div>
+            <div class="col-lg-6"> 
+			<input type="email" name = "message-email" class="form-control mb-30" placeholder="Your email">
+	    	</div> 	
+			<div class="col-12">
+				<textarea name = "message" class="form-control mb-30" placeholder="Your message"></textarea>
+			</div>		 
+	     <div id="success"> </div> <!-- For success/fail messages -->
+	    <button type="submit" class="btn btn-primary waves-effect waves-dark pull-right">Send</button><br />
+        </form>
+		</div>
+		{% if message_name %}
+			<center><h2>Thanks {{ message_name }}!</h2>
+			<p>We received your emai will respond shortly...</p></center>
+			<br/><br/>
+		{% else %}	
+		<div class="col-md-6">
+	<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3572.4101087072704!2d80.29394021487262!3d26.442506383332354!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399c47e5d60654f5%3A0x63feacf533f03640!2sDaroga%20Guest%20House!5e0!3m2!1sen!2sin!4v1610010231479!5m2!1sen!2sin" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe></script><div style="overflow:hidden;height:500px;width:600px;"><div id="gmap_canvas" style="height:500px;width:600px;"></div><style>#gmap_canvas img{max-width:none!important;background:none!important}</style><a class="google-map-code" href="http://www.trivoo.net" id="get-map-data">trivoo</a></div><script type="text/javascript"> function init_map(){var myOptions = {zoom:14,center:new google.maps.LatLng(40.805478,-73.96522499999998),mapTypeId: google.maps.MapTypeId.ROADMAP};map = new google.maps.Map(document.getElementById("gmap_canvas"), myOptions);marker = new google.maps.Marker({map: map,position: new google.maps.LatLng(40.805478, -73.96522499999998)});infowindow = new google.maps.InfoWindow({content:"<b>The Breslin</b><br/>2880 Broadway<br/> New York" });google.maps.event.addListener(marker, "click", function(){infowindow.open(map,marker);});infowindow.open(map,marker);}google.maps.event.addDomListener(window, 'load', init_map);
+	</div>
+	</div>
+	</div> 
+	</section>
+	{% endif %}
+
+
+{% endblock %}
